@@ -1,0 +1,42 @@
+<script>
+    function updateUrl(url) {
+        var div = document.getElementById('myForm').reset();
+    }
+function addItem(){
+    var form = document.getElementById('addedItems');
+    var itemName = prompt("Please enter the item name", "Computer");
+    if (itemName != null){
+        var addString = "<br>"+itemName+":<br><input name='"+itemName+"' type='file' /><br>";
+        form.innerHTML += addString;
+    }
+}
+</script>
+<center>
+    <title>IchabodCrane Inventory</title>
+    <form id="myForm">
+        <legend>Inventory:</legend>
+        <br>Room Number:<br>
+        <input type="text" name="roomNumber"><br>
+            <br>Computer Image:<br>
+            <input name="compFile" type="file" /><br>
+            <br>Computer Ichabod Tag:<br>
+            <input name="compIchFile" type="file" /><br>
+            <br>Computer Boces Tag:<br>
+            <input name="compBocesFile" type="file" /><br>
+            <br>Projector Image:<br>
+            <input name="projFile" type="file" /><br>
+            <br>Projector Ichabod Tag:<br>
+            <input name="projIchFile" type="file" /><br>
+            <br>Projector Boces Tag:<br>
+            <input name="projBocesFile" type="file" /><br>
+            <br>Apple TV Tag:<br>
+            <input name="atvFile" type="file" /><br>
+            <div id="addedItems">
+            </div>
+            <br>
+            <input type="button" onclick="addItem()" value="Add Item"/>
+            <br>
+            <input type="button" value="Submit" onclick="google.script.run.withSuccessHandler(updateUrl).processForm(this.parentNode)" />
+    </form>
+    <div id="output"></div>
+</center>
